@@ -1,0 +1,17 @@
+function carregarImgLogo() {
+		var target = document.getElementById('target-logo');
+		var file = document.querySelector("#foto-logo").files[0];
+
+		var reader = new FileReader();
+
+		reader.onloadend = function () {
+			target.src = reader.result;
+		};
+
+		if (file) {
+			reader.readAsDataURL(file);
+
+		} else {
+			target.src = "";
+		}
+	}

@@ -1,0 +1,111 @@
+<?php
+
+// Carregar o Composer
+require './vendor/autoload.php';
+
+// Referenciar o namespace Dompdf
+use Dompdf\Dompdf;
+
+// Instanciar e usar a classe dompdf
+$dompdf = new Dompdf(['enable_remote' => true]);
+
+
+// Instanciar o metodo loadHtml e enviar o conteudo do PDF
+$dompdf->loadHtml('
+
+<div class="container">
+        <div class="row">
+            <div class="mb-3 mt-5">
+                <h2 class="text-center ">WILLIAN FIGUEIREDO</h2>
+            </div>
+
+
+            <div class="col-md-6 col-sm-12 mb-5">
+                <div class="mt-4">
+                    <h5> DADOS PESSOAIS</h5>
+                    <p> <b>Endereço</b> <?= $endereco_pessoal ?></p>
+                    <p> <b>Data de Nascimento</b> :08/01/1985</p>
+                    <p>
+                        <b> Telefone/WhatsApp: </b><?= $telefone ?>
+                    </p>
+                    <p> <b>E-mail: </b><?= $email ?></p>
+                    Rede social: <a href="https://www.linkedin.com/in/willianfigueiredo/">linkedin</a>
+
+                </div>
+                
+                <div>
+                    <h5> FORMAÇÃO EDUCACIONAL</h5>
+                    <h6> CURSOS</h6>
+                    <p>
+                        Desenvolvimento de Apps no Espaço
+                        WhileTrue Cursos (Coordenador Tiago) em 07/2022 - carga horária</p>
+                    <p>
+                        Programando Carreira
+                        WhileTrue Cursos em 07/2022 - Carga 208 hrs</p>
+                    <p>
+                        Inglês : Técnico
+                        Autodidata (Programação, Filmes e Video Game).</p>
+                </div>
+                <div>
+                    <h6> CONHECIMENTOS TÉCNICOS</h6>
+                    <ul>
+                        <li>PHP</li>
+                        <li>Estrutura MVC</li>
+                        <li>HTML e CSS</li>
+                        <li>Bootstrap</li>
+                        <li>Github</li>
+                    </ul>
+                </div>
+
+
+
+            </div>
+
+            <div class="col-md-6 col-sm-12 mt-3 mb-3">
+                <div class="mt-4">
+                    <h5>EXPERIÊNCIAS PROFISSIONAIS</h5>
+                    
+
+                    <h6> EMPRESA: WhileTrue</h6>
+                    <p> <b>Período: </b> 07/2022 até 09/2022</p>
+                    <p>
+                        Função: Desenvolvedor Frontend, no projeto Programando Carreira
+                        Atividades desempenhadas: Desenvolvimento e manutenção do Frontend de um Sistema Financeiro com controle de estoque e venda, utilizando Angular, HTLM, SCSS, TypeScript, comunicando com uma API Rest. Gerenciamento de projeto feito com SCRUM e versionamento do código com Git.
+                    </p>
+                </div>
+
+                <div>
+                    <h5>PROJETOS PESSOAIS</h5>
+
+                    <p> <b>Período: </b> 02/2023 até momento</p>
+                    <p class="mt-3 mb-3">
+                        Atualmente, estou totalmente dedicado ao desenvolvimento de uma loja virtual inspirada no Extra Supermercados, utilizando a linguagem PHP. Meu principal objetivo é proporcionar aos clientes uma experiência de compra online fluida e intuitiva. Estou concentrando meus esforços em criar recursos que permitam aos clientes navegar facilmente pelo catálogo de produtos, efetuar compras seguras e desfrutar de uma ampla variedade de opções de pagamento.
+                        <br><br>
+                        http://supermercado.williamdev.com.br
+                        <br><br>
+
+                        <a href="http://supermercado.williamdev.com.br" target="_blank">
+                            <b> Acompanhamento do desenvolvimento da loja virtual inspirada no Extra Supermercados.</b>
+                        </a>
+
+                    </p>
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+');
+
+
+$dompdf->setPaper('A4', 'portrait');
+
+// Renderizar o HTML como PDF
+$dompdf->render();
+
+// Gerar o PDF
+$dompdf->stream();
