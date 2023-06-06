@@ -2,7 +2,7 @@
 require_once("../../../conexao.php");
 $tabela = 'categorias';
 
-$query = $pdo->query("SELECT * FROM $tabela order by id desc");
+$query = $pdo->query("SELECT * FROM $tabela ORDER BY id DESC");
 $res = $query->fetchAll(PDO::FETCH_ASSOC);
 $total_reg = @count($res);
 if($total_reg > 0){
