@@ -5,5 +5,5 @@ Alguns, códigos prontos em PHPe jquery como scroll suave, baixar PDF e outros.
 
 Alguns destes códigos vão precisar de bibliotecas!
 para o script  17-baixar currículo com Dompdf.txt você precisara da biblioteca 
-Dompdf , você pode encorar a documentação no githun  .
-[a link](https://github.com/dompdf/dompdf)
+Dompdf , você pode encorar a documentação neste link
+[Dompdf](https://github.com/dompdf/dompdf)
