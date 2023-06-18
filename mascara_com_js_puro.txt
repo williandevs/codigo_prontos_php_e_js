@@ -1,0 +1,45 @@
+## Mascara para js puro cpf, telefone, cnpj
+  document.addEventListener('DOMContentLoaded', function() {
+    var telefoneInput = document.getElementById('telefone');
+    var cpfInput = document.getElementById('cpf');
+    var cepInput = document.getElementById('cep');
+    var cnpjInput = document.getElementById('cnpj');
+
+    telefoneInput.addEventListener('input', function(e) {
+        var value = e.target.value;
+        value = value.replace(/\D/g, '');
+        value = value.replace(/(\d{2})(\d)/, '($1) $2');
+        value = value.replace(/(\d{5})(\d)/, '$1-$2');
+        value = value.substring(0, 14);
+        e.target.value = value;
+    });
+
+    cpfInput.addEventListener('input', function(e) {
+        var value = e.target.value;
+        value = value.replace(/\D/g, '');
+        value = value.replace(/(\d{3})(\d)/, '$1.$2');
+        value = value.replace(/(\d{3})(\d)/, '$1.$2');
+        value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+        value = value.substring(0, 14);
+        e.target.value = value;
+    });
+
+    cepInput.addEventListener('input', function(e) {
+        var value = e.target.value;
+        value = value.replace(/\D/g, '');
+        value = value.replace(/(\d{5})(\d)/, '$1-$2');
+        value = value.substring(0, 9);
+        e.target.value = value;
+    });
+
+    cnpjInput.addEventListener('input', function(e) {
+        var value = e.target.value;
+        value = value.replace(/\D/g, '');
+        value = value.replace(/(\d{2})(\d)/, '$1.$2');
+        value = value.replace(/(\d{3})(\d)/, '$1.$2');
+        value = value.replace(/(\d{3})(\d)/, '$1/$2');
+        value = value.replace(/(\d{4})(\d)/, '$1-$2');
+        value = value.substring(0, 18);
+        e.target.value = value;
+    });
+});
