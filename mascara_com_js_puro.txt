@@ -1,4 +1,4 @@
-## Mascara para js puro cpf, telefone, cnpj
+
   document.addEventListener('DOMContentLoaded', function() {
     var telefoneInput = document.getElementById('telefone');
     var cpfInput = document.getElementById('cpf');
